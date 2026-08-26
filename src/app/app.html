@@ -20,16 +20,13 @@
 
     
       <div *ngFor="let i of tasks; let ind = index" id="task">
+        <input type="checkbox" {input}="taskComplated()">
 
-  <li>{{ i }}</li>
+  <li style="list-style: none;">{{ i }}</li>
 
-  <img
-    src="close.png"
-    style="cursor: pointer;"
-    (click)="deleteTask(ind)">
-
+  <img src="close.png" style="cursor: pointer;" (click)="deleteTask(ind)">
  </div>
-  
+   <h1 *ngIf="tasks.length!=0">Completed Task</h1>
     <img *ngIf="tasks.length == 0" src="todu.png" width="300">
 
   </div>

@@ -13,6 +13,7 @@ export class App {
   tasks_text:string=''
 
   tasks:string[]= []
+  Completed:string[]=[]
 
   addText(event:any){
       this.tasks_text=event.target.value;
@@ -37,4 +38,10 @@ export class App {
   deleteTask(index: number) {
     this.tasks.splice(index, 1);
  }
+
+ taskComplated(index: number) {
+
+    this.Completed.push(this.tasks[index]);
+
+    this.tasks.splice(index, 1);}
 }
