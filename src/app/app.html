@@ -10,24 +10,58 @@
 
     <div id="first">
 
-      <input (input)="addText($event)" id="inp">
+      <input
+        (input)="addText($event)"
+        id="inp"
+      >
 
-      <button (click)="addTask()">Add Task</button>
+      <button (click)="addTask()">
+        Add Task
+      </button>
 
     </div>
 
     <br>
 
-    
-      <div *ngFor="let i of tasks; let ind = index" id="task">
-        <input type="checkbox" {input}="taskComplated()">
+    <div
+      *ngFor="let i of tasks; let ind = index"
+      id="task"
+    >
 
-  <li style="list-style: none;">{{ i }}</li>
+      <input
+        type="checkbox"
+        (change)="taskComplated(ind)"
+      >
 
-  <img src="close.png" style="cursor: pointer;" (click)="deleteTask(ind)">
- </div>
-   <h1 *ngIf="tasks.length!=0">Completed Task</h1>
-    <img *ngIf="tasks.length == 0" src="todu.png" width="300">
+      <li style="list-style: none;">
+        {{ i }}
+      </li>
+
+      <img
+        src="close.png"
+        style="cursor: pointer;"
+        (click)="deleteTask(ind)"
+      >
+
+    </div>
+
+    <h1 *ngIf="Completed.length != 0">
+      Completed Task
+    </h1>
+
+    <div *ngFor="let task of Completed">
+
+      <li style="list-style: none;">
+        {{ task }}
+      </li>
+
+    </div>
+
+    <img
+      *ngIf="tasks.length == 0 && Completed.length == 0"
+      src="todu.png"
+      width="300"
+    >
 
   </div>
 
